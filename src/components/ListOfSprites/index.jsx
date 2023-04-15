@@ -37,23 +37,31 @@ const ListOfSprites = () => {
   }, [address, setFetchedNFTs]);
 
   return (
-    <Flex width={250} backgroundColor="black">
-      {fetchedNFTs !== null ? (
-        <Stage>
-          {fetchedNFTs.map((nft, index) => (
-            <CustomSprite
-              key={nft.tokenId}
-              x={100}
-              y={200 * index}
-              image={nft.media[0].thumbnail}
-              onClick={() => handleClick(nft)}
-            />
-          ))}
-        </Stage>
-      ) : (
-        <Text color="white">Loading...</Text>
-      )}
-    </Flex>
+    <>
+        <Flex direction="column" justify="space-around" align="center">
+        <Text color="black" marginBlockEnd={3}>LIST OF TREE NFTs</Text>
+
+<Flex width={250} backgroundColor="black">
+
+  {fetchedNFTs !== null ? (
+    <Stage>
+      {fetchedNFTs.map((nft, index) => (
+        <CustomSprite
+          key={nft.tokenId}
+          x={100}
+          y={200 * index}
+          image={nft.media[0].thumbnail}
+          onClick={() => handleClick(nft)}
+        />
+      ))}
+    </Stage>
+  ) : (
+    <Text color="white">Loading...</Text>
+  )}
+</Flex>
+</Flex>
+    </>
+
   );
 };
 
