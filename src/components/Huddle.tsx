@@ -38,8 +38,8 @@ export default function Huddle()  {
   })
 
   return (
-    <div>{isInitialized ? 'Hello World!' : 'Please initialize'}
-    <h4>{JSON.stringify(state.value)}</h4>
+    <div>{isInitialized ? '' : 'Please initialize'}
+    {/* <h4>{JSON.stringify(state.value)}</h4> */}
 
       {/* <div className="grid grid-cols-4">
         {peerIds.map(peerId => (
