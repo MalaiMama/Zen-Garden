@@ -3,6 +3,8 @@ import { IDKitWidget } from "@worldcoin/idkit";
 import type { ISuccessResult } from "@worldcoin/idkit";
 import { useCallback } from "react";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import SignInButton from "./SignInButton";
+
 
 export default function Navbar() {
 
@@ -54,7 +56,7 @@ export default function Navbar() {
                 </div>
     
     <div>
-    <ConnectButton/></div>
+    <ConnectButton/><SignInButton /></div>
         </ul>
     </nav>
     {/* <hr/> */}

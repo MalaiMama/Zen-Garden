@@ -7,6 +7,9 @@ import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { goerli, polygonMumbai, mainnet, polygon, optimism, arbitrum  } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { extendTheme } from "@chakra-ui/react"
+import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 
 const taikoChain: Chain = {
   id: 167004,
@@ -213,8 +216,12 @@ const theme = extendTheme({
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient();
+
   return (
-    <WagmiConfig client={wagmiClient}>
+    <ThirdwebProvider>
+      <QueryClientProvider client={queryClient}>
+      <WagmiConfig client={wagmiClient}>
             <RainbowKitProvider
         chains={chains}
         theme={darkTheme({
@@ -229,6 +236,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         </ChakraProvider>
       </RainbowKitProvider>
     </WagmiConfig>
+      </QueryClientProvider>
+
+
+    </ThirdwebProvider>
   );
 }
 
